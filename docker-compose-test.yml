@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  vpntb-db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=dev_vpntb_db_user
+      - POSTGRES_DB=dev_vpntb_db
+      - POSTGRES_PASSWORD=dev_vpntb_db_password
+    ports:
+      - "5432:5432"
