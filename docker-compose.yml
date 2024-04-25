@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  vpntb-bot:
+    depends_on:
+      - vpntb-db
+    build:
+      context: .
+    environment:
+      BOT_NAME: ${BOT_NAME}
+      BOT_TOKEN: ${BOT_TOKEN}
+      BOT_DB_USERNAME: ${BOT_DB_USERNAME}
+      BOT_DB_PASSWORD: ${BOT_DB_PASSWORD}
+    restart: always
+  vpntb-db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=${BOT_DB_USERNAME}
+      - POSTGRES_DB=vpntb_db
+      - POSTGRES_PASSWORD=${BOT_DB_PASSWORD}
+    ports:
+        - "5432:5432"
+    expose:
+        - "5432"
