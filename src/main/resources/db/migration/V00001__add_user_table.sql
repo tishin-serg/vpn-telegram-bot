@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS "user";
+DROP TABLE IF EXISTS "telegram_user";
 
 -- Create user table
-CREATE TABLE "user" (
+CREATE TABLE "telegram_user" (
                         user_id SERIAL PRIMARY KEY,
                         chat_id BIGINT NOT NULL,
                         is_active BOOLEAN NOT NULL DEFAULT FALSE,

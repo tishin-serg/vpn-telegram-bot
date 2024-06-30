@@ -24,4 +24,35 @@ public class TelegramUserServiceImpl implements TelegramUserService {
     public Optional<TelegramUser> findByChatId(Long chatId) {
         return telegramUserRepository.findByChatId(chatId);
     }
+
+    @Override
+    public void activate(Long chatId) {
+        findByChatId(chatId).ifPresentOrElse(
+                telegramUser -> {
+                    if (!telegramUser.getIsActive()) {
+                        telegramUser.setIsActive(true);
+                        save(telegramUser);
+                    }
+                },
+                () -> {
+                    TelegramUser telegramUser = new TelegramUser();
+                    telegramUser.setChatId(chatId);
+                    telegramUser.setIsActive(true);
+                    telegramUser.setHasUsedTrial(false);
+                    save(telegramUser);
+                }
+        );
+    }
+
+    @Override
+    public void deactivate(Long chatId) {
+        findByChatId(chatId).ifPresent(
+                telegramUser -> {
+                    if (telegramUser.getIsActive()) {
+                        telegramUser.setIsActive(false);
+                        save(telegramUser);
+                    }
+                }
+        );
+    }
 }

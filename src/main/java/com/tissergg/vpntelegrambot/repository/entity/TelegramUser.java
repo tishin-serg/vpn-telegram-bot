@@ -1,26 +1,24 @@
 package com.tissergg.vpntelegrambot.repository.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "telegram_user")
 public class TelegramUser {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int userId;
+    private Integer userId;
 
     @Column(name = "chat_id")
-    private long chatId;
+    private Long chatId;
 
     @Column(name = "is_active")
-    private boolean isActive;
+    private Boolean isActive;
 
     @Column(name = "has_used_trial")
-    private boolean hasUsedTrial;
+    private Boolean hasUsedTrial;
 }
