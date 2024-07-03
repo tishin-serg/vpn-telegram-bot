@@ -1,5 +1,6 @@
 package com.tissergg.vpntelegrambot.service;
 
+
 import org.telegram.abilitybots.api.objects.Ability;
 
 public interface AbilityFactory {
@@ -8,4 +9,3 @@ public interface AbilityFactory {
     Ability helpBot();
     Ability textCommand();
 }
-
