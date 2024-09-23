@@ -1,0 +1,25 @@
+button:
+  # Основное меню пользователя
+  reply-keyboard:
+    trial-access: Пробный период  # Кнопка для активации пробного периода
+    full-access: Полный доступ    # Кнопка для покупки полного доступа
+    help: Помощь                  # Кнопка для получения информации о помощи
+
+  # Определение стоимости подписок как якоря
+  prices: &prices
+    one-month: 149 руб.
+    three-months: 349 руб.
+    six-months: 590 руб.
+
+  # Инлайн-клавиатура для покупки подписок, используя ссылки на якорь
+  inline-keyboard:
+    buy-one-month: 1 месяц за *prices.one_month
+    buy-three-month: 3 месяца за *prices.three_months
+    buy-six-month: 6 месяцев за *prices.six_months
+    confirm-trial: Начать бесплатный период  # Кнопка для начала пробного периода
+
+  # Обработчики коллбэков для инлайн-клавиатуры
+  callback:
+    buy-one-month: buy_one_month         # Коллбэк для покупки 1 месяца
+    buy-three-month: buy_three_month     # Коллбэк для покупки 3 месяцев
+    buy-six-month: buy_six_month         # Коллбэк для покупки 6 месяцев

@@ -14,7 +14,12 @@ public class CommandHandler {
     }
 
     public void handleCommand(Update update, SilentSender sender) {
-        commandContainer.retrieveCommand(update.getMessage().getText()).execute(update, sender);
+        if (update.hasMessage() && update.getMessage().hasText()) {
+            commandContainer.retrieveCommand(update.getMessage().getText()).execute(update, sender);
+        } else if (update.hasCallbackQuery()) {
+            commandContainer.retrieveCommand(String.valueOf(update.getCallbackQuery())).execute(update, sender);
+        }
+
     }
 
 }

@@ -1,26 +1,23 @@
 package com.tissergg.vpntelegrambot.constants;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
+@RequiredArgsConstructor
 public enum MainMenuButton {
 
-    TRIAL("Пробный период"),
-    SUBSCRIPTION("Полный доступ"),
+    TRIAL_ACCESS("Пробный период"),
+    FULL_ACCESS("Полный доступ"),
     HELP("Помощь"),
     //REFERRAL("Привести друга")
     ;
 
     private final String buttonName;
-
-    MainMenuButton(String buttonName) {
-        this.buttonName = buttonName;
-    }
-
-    public String getButtonName() {
-        return buttonName;
-    }
 
     // Метод для получения списка названий кнопок
     public static List<String> getButtonNames() {

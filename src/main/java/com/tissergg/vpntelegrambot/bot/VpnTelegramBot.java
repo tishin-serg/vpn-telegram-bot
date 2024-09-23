@@ -66,6 +66,10 @@ public class VpnTelegramBot extends AbilityBot {
     }
 
     public Ability textButtonCommand() {
-        return abilityFactory.textCommand();
+        return abilityFactory.buttonCommand();
     }
+
+//    public Ability callBackButtonCommand() {
+//        return abilityFactory.callbackCommand();
+//    }
 }

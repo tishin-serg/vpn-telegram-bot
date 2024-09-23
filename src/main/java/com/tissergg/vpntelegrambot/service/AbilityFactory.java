@@ -6,6 +6,7 @@ public interface AbilityFactory {
     Ability startBot();
     Ability stopBot();
     Ability helpBot();
-    Ability textCommand();
+    Ability buttonCommand();
+//    Ability callbackCommand();
 }
 
